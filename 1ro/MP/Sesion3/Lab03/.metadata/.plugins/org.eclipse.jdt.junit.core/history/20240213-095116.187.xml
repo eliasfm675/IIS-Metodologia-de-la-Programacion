@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="test" project="student_lab03_dome" tests="36" started="36" failures="0" errors="0" ignored="0">
+  <testsuite name="uo.mp.lab03.dome.model.CdSetCommentTest" time="0.034" displayname="CdSetCommentTest" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdSetCommentTest]">
+    <testcase name="nullComment" classname="uo.mp.lab03.dome.model.CdSetCommentTest" time="0.029" displayname="nullComment()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdSetCommentTest]/[method:nullComment()]"/>
+    <testcase name="rightComment" classname="uo.mp.lab03.dome.model.CdSetCommentTest" time="0.0" displayname="rightComment()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdSetCommentTest]/[method:rightComment()]"/>
+    <testcase name="blankComment" classname="uo.mp.lab03.dome.model.CdSetCommentTest" time="0.001" displayname="blankComment()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdSetCommentTest]/[method:blankComment()]"/>
+    <testcase name="emptyComment" classname="uo.mp.lab03.dome.model.CdSetCommentTest" time="0.001" displayname="emptyComment()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdSetCommentTest]/[method:emptyComment()]"/>
+  </testsuite>
+  <testsuite name="uo.mp.lab03.dome.model.DvdSetCommentTest" time="0.009" displayname="DvdSetCommentTest" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdSetCommentTest]">
+    <testcase name="nullComment" classname="uo.mp.lab03.dome.model.DvdSetCommentTest" time="0.001" displayname="nullComment()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdSetCommentTest]/[method:nullComment()]"/>
+    <testcase name="validComment" classname="uo.mp.lab03.dome.model.DvdSetCommentTest" time="0.0" displayname="validComment()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdSetCommentTest]/[method:validComment()]"/>
+    <testcase name="blankComment" classname="uo.mp.lab03.dome.model.DvdSetCommentTest" time="0.001" displayname="blankComment()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdSetCommentTest]/[method:blankComment()]"/>
+    <testcase name="emptyComment" classname="uo.mp.lab03.dome.model.DvdSetCommentTest" time="0.001" displayname="emptyComment()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdSetCommentTest]/[method:emptyComment()]"/>
+  </testsuite>
+  <testsuite name="uo.mp.lab03.dome.model.DvdSetOwnTest" time="0.005" displayname="DvdSetOwnTest" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdSetOwnTest]">
+    <testcase name="falseToTrue" classname="uo.mp.lab03.dome.model.DvdSetOwnTest" time="0.001" displayname="falseToTrue()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdSetOwnTest]/[method:falseToTrue()]"/>
+    <testcase name="trueToTrue" classname="uo.mp.lab03.dome.model.DvdSetOwnTest" time="0.0" displayname="trueToTrue()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdSetOwnTest]/[method:trueToTrue()]"/>
+    <testcase name="trueToFalse" classname="uo.mp.lab03.dome.model.DvdSetOwnTest" time="0.001" displayname="trueToFalse()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdSetOwnTest]/[method:trueToFalse()]"/>
+    <testcase name="falseToFalse" classname="uo.mp.lab03.dome.model.DvdSetOwnTest" time="0.001" displayname="falseToFalse()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdSetOwnTest]/[method:falseToFalse()]"/>
+  </testsuite>
+  <testsuite name="uo.mp.lab03.dome.model.DvdTest" time="0.01" displayname="DvdTest" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdTest]">
+    <testcase name="validParams" classname="uo.mp.lab03.dome.model.DvdTest" time="0.001" displayname="validParams()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdTest]/[method:validParams()]"/>
+    <testcase name="emptyTitle" classname="uo.mp.lab03.dome.model.DvdTest" time="0.0" displayname="emptyTitle()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdTest]/[method:emptyTitle()]"/>
+    <testcase name="blankTitle" classname="uo.mp.lab03.dome.model.DvdTest" time="0.001" displayname="blankTitle()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdTest]/[method:blankTitle()]"/>
+    <testcase name="blankDirector" classname="uo.mp.lab03.dome.model.DvdTest" time="0.0" displayname="blankDirector()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdTest]/[method:blankDirector()]"/>
+    <testcase name="nullDirector" classname="uo.mp.lab03.dome.model.DvdTest" time="0.0" displayname="nullDirector()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdTest]/[method:nullDirector()]"/>
+    <testcase name="negativeTime" classname="uo.mp.lab03.dome.model.DvdTest" time="0.0" displayname="negativeTime()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdTest]/[method:negativeTime()]"/>
+    <testcase name="zeroTime" classname="uo.mp.lab03.dome.model.DvdTest" time="0.0" displayname="zeroTime()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdTest]/[method:zeroTime()]"/>
+    <testcase name="nullTitle" classname="uo.mp.lab03.dome.model.DvdTest" time="0.0" displayname="nullTitle()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdTest]/[method:nullTitle()]"/>
+    <testcase name="emptyDirector" classname="uo.mp.lab03.dome.model.DvdTest" time="0.0" displayname="emptyDirector()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.DvdTest]/[method:emptyDirector()]"/>
+  </testsuite>
+  <testsuite name="uo.mp.lab03.dome.model.CdTest" time="0.009" displayname="CdTest" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdTest]">
+    <testcase name="negativeTracks" classname="uo.mp.lab03.dome.model.CdTest" time="0.0" displayname="negativeTracks()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdTest]/[method:negativeTracks()]"/>
+    <testcase name="validParams" classname="uo.mp.lab03.dome.model.CdTest" time="0.0" displayname="validParams()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdTest]/[method:validParams()]"/>
+    <testcase name="zeroTracks" classname="uo.mp.lab03.dome.model.CdTest" time="0.0" displayname="zeroTracks()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdTest]/[method:zeroTracks()]"/>
+    <testcase name="emptyTitle" classname="uo.mp.lab03.dome.model.CdTest" time="0.0" displayname="emptyTitle()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdTest]/[method:emptyTitle()]"/>
+    <testcase name="blankTitle" classname="uo.mp.lab03.dome.model.CdTest" time="0.001" displayname="blankTitle()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdTest]/[method:blankTitle()]"/>
+    <testcase name="negativeTime" classname="uo.mp.lab03.dome.model.CdTest" time="0.001" displayname="negativeTime()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdTest]/[method:negativeTime()]"/>
+    <testcase name="emptyArtist" classname="uo.mp.lab03.dome.model.CdTest" time="0.0" displayname="emptyArtist()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdTest]/[method:emptyArtist()]"/>
+    <testcase name="zeroTime" classname="uo.mp.lab03.dome.model.CdTest" time="0.001" displayname="zeroTime()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdTest]/[method:zeroTime()]"/>
+    <testcase name="nullTitle" classname="uo.mp.lab03.dome.model.CdTest" time="0.001" displayname="nullTitle()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdTest]/[method:nullTitle()]"/>
+    <testcase name="nullArtist" classname="uo.mp.lab03.dome.model.CdTest" time="0.001" displayname="nullArtist()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdTest]/[method:nullArtist()]"/>
+    <testcase name="blankArtist" classname="uo.mp.lab03.dome.model.CdTest" time="0.001" displayname="blankArtist()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdTest]/[method:blankArtist()]"/>
+  </testsuite>
+  <testsuite name="uo.mp.lab03.dome.model.CdSetOwnTest" time="0.003" displayname="CdSetOwnTest" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdSetOwnTest]">
+    <testcase name="falseToTrue" classname="uo.mp.lab03.dome.model.CdSetOwnTest" time="0.001" displayname="falseToTrue()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdSetOwnTest]/[method:falseToTrue()]"/>
+    <testcase name="trueToTrue" classname="uo.mp.lab03.dome.model.CdSetOwnTest" time="0.0" displayname="trueToTrue()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdSetOwnTest]/[method:trueToTrue()]"/>
+    <testcase name="trueToFalse" classname="uo.mp.lab03.dome.model.CdSetOwnTest" time="0.0" displayname="trueToFalse()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdSetOwnTest]/[method:trueToFalse()]"/>
+    <testcase name="falseToFalse" classname="uo.mp.lab03.dome.model.CdSetOwnTest" time="0.0" displayname="falseToFalse()" uniqueid="[engine:junit-jupiter]/[class:uo.mp.lab03.dome.model.CdSetOwnTest]/[method:falseToFalse()]"/>
+  </testsuite>
+</testrun>

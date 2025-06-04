@@ -1,0 +1,330 @@
+package uo.mp.lab02.game.model;
+
+import java.util.Random;
+
+import uo.mp.util.check.ArgumentChecks;
+
+/**
+ * <p>
+ * Titulo: Clase Game2048
+ * </p>
+ * 
+ * <p>
+ * Descripcion: A partir de un array bidimensional de numeros y a traves de
+ * diferentes operaciones se simula un juego llamado "2048"
+ * </p>
+ *
+ * <p>
+ * Copyright: Copyright (c) 2024
+ * </p>
+ * <p>
+ * Empresa: Escuela de Ingenieri Informatica - Uiversidad de Oviedo
+ * </p>
+ * 
+ * @author Profesores-MP
+ * @version 2024
+ */
+/**
+ * 
+ */
+public class Game2048 {
+
+	// Completar y corregir los comentarios javadoc
+	private int[][] board;
+	/**
+	 * Constantes para las dimensiones
+	 */
+	public static final int MAX_LENGTH = 5;
+	public static final int MIN_LENGTH = 2;
+	public static final int STANDARD_LENGTH = 3;
+
+	/**
+	 * Constructor sin parametros con tablero por defecto de 3*3 Inicialmente todas
+	 * las posiciones con valor 0
+	 */
+
+	public Game2048() {
+		board = new int[STANDARD_LENGTH][STANDARD_LENGTH];
+	}
+
+	/**
+	 * Constructor que recibe el tama�o del tablero
+	 *
+	 * @param size tamanio del tablero cuadrado. Si el tamanio no esta entre el
+	 *             m�nimo (2) y el maximo (5) se crea un tablero con el valor por
+	 *             defecto (3)
+	 */
+	public Game2048(int size) {
+		this();
+		if (size >= MIN_LENGTH && size <= MAX_LENGTH) {
+			board = new int[size][size];
+		}
+	}
+
+	/**
+	 * Inicializa el tablero con la matriz recibida como parametro, Util para
+	 * prop�sito de test. Se crea UNA COPIA (se denomina copia defensiva)del
+	 * parametro en el tablero interno para evitar que desde fuera se pueda
+	 * modificar los valores del tablero a posteriori
+	 * 
+	 * @param matriz cuadrada, de dimensiones entre maximo (5x5) y el m�nimo (3x3)
+	 *               conteniendo solo valores potencia de 2.
+	 * 
+	 * @throws IllegalArgumentException si parametro null, la dimension es erronea,
+	 *                                  o hay valores inadecuados (no son potencia
+	 *                                  de 2).
+	 */
+
+	protected Game2048(int[][] board) {
+		ArgumentChecks.isNotNull(board, "Tablero inadecuado o null");
+		ArgumentChecks.isTrue(board.length == board[0].length, "Tablero inadecuado o null");
+		ArgumentChecks.isTrue(
+				(board.length >= MIN_LENGTH && board.length <= MAX_LENGTH)
+						&& (board[0].length >= MIN_LENGTH && board[0].length <= MAX_LENGTH),
+				"Tablero inadecuado o null");
+		this.board = new int[board.length][board[0].length];
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				this.board[i][j] = board[i][j];
+			}
+		}
+	}
+
+	/**
+	 * Reinicia todas las posiciones a 0 y llama a next para que incluya un 2 en una
+	 * posicion aleatoria
+	 */
+	public void restart() {
+		Random r = new Random();
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				board[i][j] = 0;
+			}
+		}
+		board[r.nextInt(board.length)][r.nextInt(board[0].length)] = 2;
+
+	}
+
+	/**
+	 * Aniade un nuevo 2 en una posicion aleatoria vacia siempre que exista alguna
+	 * 
+	 */
+	public void next() {
+		Random r = new Random();
+		int randomRow = r.nextInt(board.length);
+		int randomColumn = r.nextInt(board[0].length);
+		if (board[randomRow][randomColumn] == 0) {
+			board[randomRow][randomColumn] = 2;
+		}
+	}
+
+	/**
+	 * Comprueba si el tablero est� lleno. Esto ocurre cuando todas las celdas o
+	 * posiciones del tablero tienen un n�mero distinto de cero
+	 * 
+	 * @return true si esta el tablero lleno, false si hay algun hueco
+	 */
+	private boolean isBoardFull() {
+		int counter = 0;
+		int totalCells = board.length * board[0].length;
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				if (board[i][j] != 0) {
+					counter++;
+				}
+			}
+		}
+		return counter == totalCells;
+
+	}
+
+
+	/**
+	 * Compacta el tablero a la derecha, dejando en cada fila todos los valores
+	 * distintos de cero consecutivos en las ultimas posiciones de la fila y todos
+	 * los ceros en las primeras posiciones de la fila
+	 */
+	 void compactRight() {
+		for (int i = 0; i < board.length; i++) {
+			compactRowRight(i);
+		}
+	}
+
+	/**
+	 * Método que compacta una fila ala derecha
+	 */
+	private void compactRowRight(int row) {
+		for (int i = board[0].length - 1; i >= 0; i--) {
+			if (board[row][i] == 0) {
+				int temp = 0;
+				temp = findPositionAtLeftWithValueFor(row, i);
+				if (temp != -1) {
+					board[row][i] = board[row][temp];
+					board[row][temp] = 0;
+				}
+			}
+		}
+	}
+
+	/**
+	 * Método que encuentra el primer valor distinto de 0 en un fila
+	 */
+	/**
+	 * @param row
+	 * @param column
+	 * @return
+	 */
+	private int findPositionAtLeftWithValueFor(int row, int column) {
+		for (int i = column - 1; i >= 0; i--) {
+			if (board[row][i] != 0) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	/**
+	 * @return un String con los datos de la matriz en formato para ser mostrado por
+	 *         pantalla Habra 5 espacios para cada posicion en la misma fila y un \n
+	 *         al final de cada fila Ejemplo. Para luego escribir: 2 2 0 2 0 0 2 0 2
+	 *         Se devuelve el String "2 2 0\n2 0 0\n2 0 2\n"
+	 */
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for(int i=0; i<board.length; i++) {
+			for(int j=0; j<board[0].length; j++) {
+				sb.append(String.format("%-5s", board[i][j]));
+			}
+			sb.append("\n");
+		}
+		return sb.toString();
+	}
+
+	/**
+	 * Devuelve UNA COPIA de la matriz
+	 * 
+	 * @return copia exacta del tablero
+	 */
+	protected int[][] getBoard() {
+		int[][] copy = new int[board.length][board[0].length];
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				copy[i][j] = board[i][j];
+			}
+		}
+		return copy;
+	}
+	/**
+	 * Método que compacta a la derecha los números de cada fila y a continuación
+	 *  suma de dos en dos los números consecutivos iguales dejando el
+	 *  resultado en la casilla derecha. Finalmente, se vuelve a compactar. 
+	 */
+	public void moveRight() {
+		compactRight();
+		for(int i=0; i<board.length; i++) {
+			for(int j=0; j<board[0].length -1; j++) {
+				mergeRight(i, j);
+			}
+		}
+		compactRight();
+	}
+	/**
+	 * Método auxiliar de moveRight que suma los números iguales consecutivos de
+	 * una matriz
+	 * @param row
+	 * @param column
+	 */
+	private void mergeRight(int row, int column) {
+		if(board[row][column]==board[row][column+1] && column<board[0].length-1 && column>=0) {
+			board[row][column+1]=board[row][column]+board[row][column+1];
+			board[row][column]=0;
+		}
+	}
+	/**
+	 * Método análogo a moveRight pero a la izquierda.
+	 */
+	public void moveLeft() {
+		rotateBoard();
+		rotateBoard();
+		moveRight();
+		rotateBoard();
+		rotateBoard();
+	}
+	/**
+	 * Método auxiliar que rota la matriz
+	 */
+	private void rotateBoard() {
+       int[][] transposed = new int[board.length][board[0].length];
+       int[][] rotated = new int[board.length][board[0].length];
+       for(int i=0; i<board.length; i++) {
+    	   for(int j=0; j<board[0].length; j++) {
+    		   transposed[i][j]=board[j][i];
+    	   }
+       }
+       for(int i=0; i<board.length; i++) {
+    	   for(int j=0; j<board[0].length; j++) {
+    		  rotated[board.length-1-i][j]=transposed[i][j];
+    	   }
+       }
+       for(int i=0; i<board.length; i++) {
+    	   for(int j=0; j<board[0].length; j++) {
+    		   board[i][j]=rotated[i][j];
+    	   }
+       }
+	}
+	/**
+	 * Método análogo a moveRight pero hacia abajo
+	 */
+	public void moveDown() {
+		rotateBoard();
+		rotateBoard();
+		rotateBoard();
+		moveRight();
+		rotateBoard();
+	
+	}
+	/**
+	 * Método análogo a moveRight pero hacia arriba
+	 */
+	public void moveUp() {
+		rotateBoard();
+		moveRight();
+		rotateBoard();
+		rotateBoard();
+		rotateBoard();
+		
+	}
+	/**
+	 * Método que comprueba si se da la condición para terminar el juego
+	 * ya sea habiendo ganado(hay un 2048) o perdido (el tablero está lleno)
+	 * devolvería true en cualquiera de estos casos y false si ninguno se da
+	 */
+	/**
+	 * @return true si hay un 2048 o está lleno el tablero
+	 */
+	public boolean isFinished() {
+		int notZeroCounter=0;
+		boolean isThere2048=false;
+		int boardDimensions = board.length * board[0].length;
+		for(int i=0; i<board.length; i++) {
+			for(int j=0; j<board[0].length; j++) {
+				if(board[i][j]==2048) {
+					isThere2048=true;
+				}else if(board[i][j]!=0);
+				notZeroCounter++;
+			}
+		}
+		return isThere2048 || (boardDimensions == notZeroCounter);
+	
+	}
+	/**
+	 * @param n entero >= 0
+	 * @return true si n is potencia de 2; false en otro caso
+	 * 
+	 */
+	private boolean powerOfTwoBitwise(int n) {
+		return (n & (n - 1)) == 0; // No hay que hacer nada en este metodo
+	}
+
+
+}

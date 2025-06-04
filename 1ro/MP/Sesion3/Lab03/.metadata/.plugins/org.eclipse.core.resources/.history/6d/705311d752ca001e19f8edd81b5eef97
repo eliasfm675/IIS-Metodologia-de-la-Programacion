@@ -1,0 +1,54 @@
+/**
+ * 
+ */
+package uo.mp.lab03.dome.service;
+
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import uo.mp.lab03.dome.model.Cd;
+import uo.mp.lab03.dome.model.Dvd;
+
+/**
+ * @author uo299673
+ *
+ */
+class MediaLibraryAddTest {
+
+    /**
+     * Clase de pruebas del método add().Casos de add:
+     * 1.-Añadir un CD a lista vacía
+     * 2.-Añadir un DVD a una lista vacía
+     * 3.-Añadir un CD a una lista con varios items
+     * 4.-Añadir un DVD a una lista con varios items
+     * 5.-Añadir null --> salta excepción
+     */
+    private MediaLibrary ml;
+    private Cd aCD;
+    private Dvd aDVD;
+    private String theTitle, theArtist, theDirector;
+    private int theTime, theTracks;
+    
+
+    @BeforeEach
+    void setUp() throws Exception {
+	theTitle = "Come Together";
+	theArtist = "Beatles";
+	theTime = 70;
+	theTracks = 4;
+	aCD = new Cd(theTitle, theArtist, theTracks, theTime);
+	theTitle = "La guerra de las Galaxias";
+	theDirector = "George Lucas";
+	theTime = 125;
+	aDVD = new Dvd(theTitle, theDirector, theTime);
+	
+    }
+
+    @Test
+    void test() {
+	fail("Not yet implemented");
+    }
+
+}

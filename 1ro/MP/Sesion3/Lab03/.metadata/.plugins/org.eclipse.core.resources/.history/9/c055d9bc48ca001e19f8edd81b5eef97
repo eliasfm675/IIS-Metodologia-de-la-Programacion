@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package uo.mp.lab03.dome.ui;
+
+/**
+ * @author uo299673
+ *
+ */
+public class MediaPlayer {
+
+    public void run() {
+	// TODO Auto-generated method stub
+	
+    }
+
+}

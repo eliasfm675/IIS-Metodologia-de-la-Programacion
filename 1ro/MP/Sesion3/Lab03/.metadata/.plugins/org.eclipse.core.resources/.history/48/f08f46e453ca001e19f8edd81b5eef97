@@ -1,0 +1,33 @@
+/**
+ * 
+ */
+package uo.mp.lab03.dome.service;
+
+import java.util.ArrayList;
+
+import uo.mp.lab03.dome.model.Item;
+import uo.mp.util.check.ArgumentChecks;
+
+/**
+ * @author uo299673
+ *
+ */
+public class MediaLibrary {
+    private ArrayList<Item> items = new ArrayList<>();
+
+    /**
+     * Añade un item a la lista. No puede ser null; si lo es salta IllegalArgumentException
+     * 
+     * @param item
+     * @throws IllegalArgumentException si el item es null
+     */
+    public void add(Item item) {
+	ArgumentChecks.isNotNull(item);
+	items.add(item);
+    }
+
+    protected ArrayList<Item> getItems() {
+	return items;
+    }
+
+}

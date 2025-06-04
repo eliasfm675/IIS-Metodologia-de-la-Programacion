@@ -1,0 +1,14 @@
+package uo.mp.lab03.dome.service;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class MediaLibraryAddTest {
+
+    @Test
+    void test() {
+	fail("Not yet implemented");
+    }
+
+}
